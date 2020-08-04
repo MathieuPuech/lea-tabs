@@ -1,0 +1,29 @@
+{
+  "name": "lea-tabs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 9001",
+    "storybook:build": "build-storybook",
+    "storybook:build:start": "es-dev-server --root-dir storybook-static --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MathieuPuech/lea-tabs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MathieuPuech/lea-tabs/issues"
+  },
+  "homepage": "https://github.com/MathieuPuech/lea-tabs#readme",
+  "devDependencies": {
+    "@mdjs/core": "^0.3.3",
+    "@open-wc/demoing-storybook": "^2.3.16"
+  },
+  "dependencies": {
+    "@lion/tabs": "^0.5.0"
+  }
+}
