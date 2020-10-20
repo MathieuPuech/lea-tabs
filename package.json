@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "providence:extend": "providence extend-docs -r \"node_modules/@lion/tabs\" --prefix-from lion --prefix-to lea",
+    "build": "npm run providence:extend && npm run storybook:build",
     "start": "npm run storybook",
     "storybook": "start-storybook -p 9001",
     "storybook:build": "build-storybook",
