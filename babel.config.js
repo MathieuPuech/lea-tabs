@@ -4,6 +4,7 @@ const providenceExtendConfig = require('./providence-extend-docs-data.json');
 const extendDocsConfig = {
   rootPath: path.resolve('.'),
   changes: providenceExtendConfig,
+  throwOnNonExistingPathToFiles: false,
 };
 
 module.exports = {

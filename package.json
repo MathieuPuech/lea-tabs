@@ -25,7 +25,8 @@
     "@mdjs/core": "^0.4.0",
     "@open-wc/demoing-storybook": "^2.4.5",
     "babel-plugin-extend-docs": "^0.2.3",
-    "providence-analytics": "^0.8.0"
+    "providence-analytics": "^0.8.0",
+    "remark-extend": "^0.2.1"
   },
   "dependencies": {
     "@lion/tabs": "^0.5.7"

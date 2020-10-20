@@ -1,3 +1,15 @@
+const fs = require('fs');
+const { remarkExtend } = require('remark-extend');
+
+function isLion(filePath) {
+  return filePath.indexOf('@lion/') !== -1;
+}
+
+function getLocalOverridePath(filePath, root = process.cwd()) {
+  const rel = filePath.substring(filePath.indexOf('/@lion/') + 7, filePath.length - 3);
+  return `${root}/packages/${rel}.override.md`;
+}
+
 module.exports = {
     stories: [
       '../!(*.override)*.md',
@@ -19,5 +31,27 @@ module.exports = {
       watch: true,
       open: true,
       babel: true,
+    },
+    setupMdjsPlugins: (plugins, filePath) => {
+      if (!isLion(filePath)) {
+        return plugins;
+      }
+      const newPlugins = [...plugins];
+      const markdownIndex = newPlugins.findIndex(plugin => plugin.name === 'markdown');
+      const overridePaths = [getLocalOverridePath(filePath), `${process.cwd()}/.storybook/all.override.md`];
+  
+      let i = 0;
+      for (const overridePath of overridePaths) {
+        if (fs.existsSync(overridePath)) {
+          const extendMd = fs.readFileSync(overridePath, 'utf8');
+          newPlugins.splice(markdownIndex, 0, {
+            name: `remarkExtend${i}`,
+            plugin: remarkExtend.bind({}),
+            options: { extendMd, filePath, overrideFilePath: overridePath },
+          });
+        }
+        i += 1;
+      }
+      return newPlugins;
     },
   };
