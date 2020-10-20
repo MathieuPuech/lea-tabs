@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "providence:extend": "providence extend-docs -r \"node_modules/@lion/tabs\" --prefix-from lion --prefix-to lea",
     "start": "npm run storybook",
     "storybook": "start-storybook -p 9001",
     "storybook:build": "build-storybook",
@@ -20,10 +21,11 @@
   },
   "homepage": "https://github.com/MathieuPuech/lea-tabs#readme",
   "devDependencies": {
-    "@mdjs/core": "^0.3.3",
-    "@open-wc/demoing-storybook": "^2.3.16"
+    "@mdjs/core": "^0.4.0",
+    "@open-wc/demoing-storybook": "^2.4.5",
+    "providence-analytics": "^0.8.0"
   },
   "dependencies": {
-    "@lion/tabs": "^0.5.0"
+    "@lion/tabs": "^0.5.7"
   }
 }

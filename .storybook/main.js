@@ -1,6 +1,7 @@
 module.exports = {
     stories: [
-      '../README.md',
+        '../node_modules/@lion/tabs/README.md',
+        '../!(*.override)*.md'
     ],
     addons: [
       // order of tabs in addons panel
